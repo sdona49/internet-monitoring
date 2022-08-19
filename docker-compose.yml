@@ -92,10 +92,11 @@ services:
 
   telegraf:
     container_name: telegraf
-    image: telegraf
+    image: telegraf:latest
     restart: on-failure
     volumes:
-      - $PWD/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      - $HOME/internet-monitoring/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    ports:
+      - 9273:9273
     networks:
       - back-tier
-    
